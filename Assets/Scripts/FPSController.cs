@@ -12,6 +12,8 @@ public class FPSController : MonoBehaviour
     float xRotation = 0f;
     float yVelocity;
 
+    public Transform respawn;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -55,5 +57,9 @@ public class FPSController : MonoBehaviour
         Vector3 move = direction * speed + Vector3.up * yVelocity;
 
         controller.Move(move * Time.deltaTime);
+
+        if(transform.position.y<-10f) transform.position=respawn.position;//Respawn a la coordenada 0.0.0
     }
+
+    
 }
