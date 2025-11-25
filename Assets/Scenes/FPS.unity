@@ -275,6 +275,7 @@ MonoBehaviour:
   mouseSensitivity: 200
   gravity: -9.81
   respawn: {fileID: 278053401}
+  jumpHeight: 2
 --- !u!1 &39859120
 GameObject:
   m_ObjectHideFlags: 0

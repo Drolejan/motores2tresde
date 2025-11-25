@@ -13,7 +13,8 @@ public class FPSController : MonoBehaviour
     float yVelocity;
 
     public Transform respawn;
-
+    public float jumpHeight;
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
