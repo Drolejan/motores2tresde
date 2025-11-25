@@ -48,12 +48,27 @@ public class FPSController : MonoBehaviour
         if (direction.magnitude > 1f)
             direction.Normalize();
 
-        // Gravedad
+        // ------------------------
+        // Gravedad + Salto
+        // ------------------------
         if (controller.isGrounded)
+        {
+            // Mantener al personaje pegado al piso
             yVelocity = -1f;
-        else
-            yVelocity += gravity * Time.deltaTime;
 
+            // Saltar
+            if (Input.GetButtonDown("Jump"))
+            {
+                // Fórmula física: v = sqrt(altura * -2 * gravedad)
+                yVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+        }
+        else
+        {
+            // Aplicar gravedad mientras está en el aire
+            yVelocity += gravity * Time.deltaTime;
+        }
+        
         Vector3 move = direction * speed + Vector3.up * yVelocity;
 
         controller.Move(move * Time.deltaTime);
