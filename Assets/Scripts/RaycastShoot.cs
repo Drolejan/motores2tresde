@@ -6,6 +6,8 @@ public class RaycastShoot : MonoBehaviour
     public float range = 100f;
     public GameObject hitEffect;
 
+    public float shootDmg=20f;
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -23,7 +25,7 @@ public class RaycastShoot : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range))
         {
             // Línea solo hasta el impacto
-            Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
+            Debug.DrawLine(ray.origin, hit.point, Color.red, 0.5f);
 
             Debug.Log("Golpeaste: " + hit.collider.name);
 
@@ -32,7 +34,8 @@ public class RaycastShoot : MonoBehaviour
 
             if (hit.collider.CompareTag("Enemy"))
             {
-                Destroy(hit.collider.gameObject);
+                //Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(shootDmg);
             }
         }
         else
