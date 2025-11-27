@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class RaycastShoot : MonoBehaviour
 {
-    public Camera cam;     // Cámara desde donde saldrá el raycast
+    public Camera cam;     
     public float range = 100f;
     public GameObject hitEffect;
 
     void Update()
     {
-        // Fire1 normalmente es el click izquierdo del mouse
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
@@ -17,24 +16,29 @@ public class RaycastShoot : MonoBehaviour
 
     void Shoot()
     {
-        // Ray desde el centro de la pantalla
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
-        //Debug.DrawRay(transform.position,Vector3.forward*100);
 
+        // Visualizar el rayo en escena
         if (Physics.Raycast(ray, out hit, range))
         {
-            // Por ahora solo mostramos qué se golpeó
-            Debug.Log("Golpeaste: " + hit.collider.name);
-            GameObject balaeffect = Instantiate(hitEffect,hit.point,Quaternion.identity);
-            Destroy(balaeffect,1f);//Esto destruye el impacto despues de 1 seg
+            // Línea solo hasta el impacto
+            Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
 
-            // Ejemplo para práctica:
-            // si el objeto tiene tag "Enemy", lo destruimos
+            Debug.Log("Golpeaste: " + hit.collider.name);
+
+            GameObject balaeffect = Instantiate(hitEffect, hit.point, Quaternion.identity);
+            Destroy(balaeffect, 1f);
+
             if (hit.collider.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
             }
+        }
+        else
+        {
+            // Si no golpea, dibuja ray completo
+            Debug.DrawRay(ray.origin, ray.direction * range, Color.red, 1f);
         }
     }
 }
