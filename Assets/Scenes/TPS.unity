@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 330585545}
   range: 100
-  hitEffect: {fileID: 2112373000916758764, guid: 51203f90353fb1149b22a232d7bbf066, type: 3}
+  hitEffect: {fileID: 8314540580738152701, guid: 3c5fe904f75173f4fb7460588297a62d, type: 3}
   canon: {fileID: 946373592}
 --- !u!43 &21916670
 Mesh:
