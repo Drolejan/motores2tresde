@@ -1,3 +1,5 @@
+using Mono.Cecil;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class ThirdPersonShoot : MonoBehaviour
@@ -5,7 +7,7 @@ public class ThirdPersonShoot : MonoBehaviour
     public Camera cam;          // Cámara que sigue al personaje (la que ve el jugador)
     public float range = 100f;
     public GameObject hitEffect;
-
+    public Transform canon;
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -17,7 +19,9 @@ public class ThirdPersonShoot : MonoBehaviour
     void Shoot()
     {
         // Ray desde el centro de la pantalla (igual que en primera persona)
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        //Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        // Ray desde el arma
+        Ray ray = new Ray(canon.position,canon.forward);
         RaycastHit hit;
 
         // Solo para que veas la línea en Scene
