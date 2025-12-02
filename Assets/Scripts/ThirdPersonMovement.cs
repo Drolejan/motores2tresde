@@ -7,6 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 5f;
     public float turnSpeed = 10f;
     public float gravity = -9.81f;
+    public float jumpHeight = 2f;
 
     float yVelocity;
 
@@ -32,9 +33,19 @@ public class ThirdPersonMovement : MonoBehaviour
 
             // Gravedad básica
             if (controller.isGrounded)
+            {
                 yVelocity = -1f;
+                // Saltar
+            if (Input.GetButtonDown("Jump"))
+                {
+                // Fórmula física: v = sqrt(altura * -2 * gravedad)
+                yVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                }
+            }
             else
+            {
                 yVelocity += gravity * Time.deltaTime;
+            } 
 
             controller.Move((moveDir * speed + Vector3.up * yVelocity) * Time.deltaTime);
         }
