@@ -34,6 +34,8 @@ void Start()
 
         if (Physics.Raycast(ray, out hit, range))
         {
+            if(hit.collider.CompareTag("Player")) return;//Ignora al player
+
             Debug.Log("TPS con mira golpeaste: " + hit.collider.name);
 
             if (hitEffect != null)
