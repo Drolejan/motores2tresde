@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 15325471}
   - component: {fileID: 15325473}
   - component: {fileID: 15325474}
+  - component: {fileID: 15325476}
+  - component: {fileID: 15325475}
+  - component: {fileID: 15325477}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -292,6 +295,52 @@ MonoBehaviour:
   range: 100
   hitEffect: {fileID: 8314540580738152701, guid: 3c5fe904f75173f4fb7460588297a62d, type: 3}
   canon: {fileID: 946373592}
+--- !u!114 &15325475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15325466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbb686a929584a5788f884d3f6f7b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCam: {fileID: 1613968027}
+  normalFOV: 60
+  zoomFOV: 30
+  aimSpeed: 10
+--- !u!114 &15325476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15325466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9002d9541cf4a9ba7400d359245eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 330585545}
+  range: 100
+  hitEffect: {fileID: 2112373000916758764, guid: 51203f90353fb1149b22a232d7bbf066, type: 3}
+  crosshair: {fileID: 1243157255}
+--- !u!114 &15325477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15325466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e284aae1466f469f844704e99df6444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 1243157255}
+  sensitivity: 2000
 --- !u!43 &21916670
 Mesh:
   m_ObjectHideFlags: 0
@@ -1133,7 +1182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &254678308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
